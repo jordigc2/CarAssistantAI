@@ -1,0 +1,17 @@
+tqdm
+scikit-learn
+matplotlib
+numpy
+nltk
+
+langchain
+langchain-community 
+langchain-core
+unstructured
+chromadb
+sentencepiece
+sentence-transformers
+streamlit
+accelerate
+pypdf
+InstructorEmbedding

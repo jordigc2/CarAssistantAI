@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  car_assistant_bot_image:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: car_assistant_bot_image
+    image: car_assistant_bot_image:latest
+    volumes:
+      - .:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.Xauthority:/root/.Xauthority
+    privileged: true
+    container_name: car_assistant_bot_container
+    runtime: nvidia
+    environment:
+      DISPLAY: ${DISPLAY}
+      NAMESPACE: ${NAMESPACE}
+    command: streamlit run src/car_qa_support_ai_agent.py
+    tty: true
+    shm_size: 30gb
+    ports:
+      - "8501:8501"
+    
